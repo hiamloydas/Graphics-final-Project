@@ -2,14 +2,14 @@
 #include <cmath>
 #define PI 3.14159265358979323846
 
-float _move4 = 0.0f;    // cloud1
-float _move5 = 0.0f;    // cloud2
-float _move3 = 0.0f;    // bird
-float _movePlane = 0.0f; // plane
-float _moveCar = 0.0f;   // car
-float _moveBus = 0.0f;   // bus
+float _move4 = 0.0f;    
+float _move5 = 0.0f;    
+float _move3 = 0.0f;    
+float _movePlane = 0.0f; 
+float _moveCar = 0.0f;   
+float _moveBus = 0.0f;   
 
-// ---------------- Bird ----------------
+
 void drawBird(float x, float y) {
     glColor3f(0.0f, 0.0f, 0.0f); // black
     glLineWidth(2.0f);
@@ -22,7 +22,7 @@ void drawBird(float x, float y) {
     glEnd();
 }
 
-// ---------------- Plane ----------------
+
 void drawPlane(float x, float y) {
     glPushMatrix();
     glTranslatef(x, y, 0.0f);
@@ -240,7 +240,7 @@ void drawBackRowBuildings() {
     }
 }
 
-// ---------------- Display ----------------
+
 void display() {
     glClear(GL_COLOR_BUFFER_BIT);
     glLoadIdentity();
@@ -337,7 +337,7 @@ void timer(int) {
     glutTimerFunc(16, timer, 0);
 }
 
-// ---------------- Init ----------------
+
 void init() {
     glClearColor(0.6f, 0.9f, 1.0f, 1.0f);
     glMatrixMode(GL_PROJECTION);
@@ -345,7 +345,7 @@ void init() {
     gluOrtho2D(-1, 1, -1, 1);
 }
 
-// ---------------- Main ----------------
+
 int main(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
@@ -358,3 +358,4 @@ int main(int argc, char** argv) {
     glutMainLoop();
     return 0;
 }
+
