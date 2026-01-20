@@ -9,7 +9,6 @@ float _movePlane = -1.5f;
 float _moveCar = -1.2f;
 float _moveBus = 1.2f;
 
-// ---------------- Helper Functions ----------------
 void drawBird(float x, float y) {
     glColor3f(0.0f, 0.0f, 0.0f);
     glLineWidth(2.0f);
@@ -22,7 +21,7 @@ void drawBird(float x, float y) {
     glEnd();
 }
 
-// ---------------- Plane ----------------
+
 void drawPlane(float x, float y) {
     // Plane body
     glColor3f(1.0f, 0.0f, 0.0f);
@@ -33,7 +32,7 @@ void drawPlane(float x, float y) {
         glVertex2f(x, y + 0.05f);
     glEnd();
 
-    // Windows
+
     glColor3f(0.0f, 1.0f, 1.0f);
     for(float wx = x + 0.02f; wx < x + 0.28f; wx += 0.06f){
         glBegin(GL_POLYGON);
@@ -44,7 +43,7 @@ void drawPlane(float x, float y) {
         glEnd();
     }
 
-    // Slides
+
     glColor3f(0.6f, 0.6f, 0.6f);
     glBegin(GL_TRIANGLES);
         glVertex2f(x + 0.3f, y);
@@ -53,7 +52,6 @@ void drawPlane(float x, float y) {
     glEnd();
 }
 
-// ---------------- Back-row Buildings ----------------
 void drawBackRowBuildings() {
     float buildingX[] = {-0.9f, -0.5f, 0.0f, 0.5f};
     float buildingWidth = 0.18f;
@@ -68,7 +66,7 @@ void drawBackRowBuildings() {
             glVertex2f(buildingX[i], buildingHeight[i] - 0.2f);
         glEnd();
 
-        // Windows
+        
         glColor3f(0.0f, 0.8f, 1.0f);
         float winWidth = 0.03f, winHeight = 0.035f;
         for(int row = 0; row < 3; row++){
@@ -86,7 +84,7 @@ void drawBackRowBuildings() {
     }
 }
 
-// ---------------- Front-row Buildings ----------------
+
 void drawFrontRowBuildings() {
     float buildingX[] = {-0.8f, -0.4f, 0.0f, 0.4f};
     float buildingWidth = 0.18f;
@@ -101,7 +99,7 @@ void drawFrontRowBuildings() {
             glVertex2f(buildingX[i], buildingHeight[i] - 0.05f);
         glEnd();
 
-        // Windows
+
         glColor3f(0.0f, 0.8f, 1.0f);
         float winWidth = 0.03f, winHeight = 0.035f;
         for(int row = 0; row < 3; row++){
@@ -119,7 +117,7 @@ void drawFrontRowBuildings() {
     }
 }
 
-// ---------------- Road ----------------
+
 void drawRoad() {
     glColor3f(0.2f, 0.2f, 0.2f);
     glBegin(GL_QUADS);
@@ -129,7 +127,6 @@ void drawRoad() {
         glVertex2f(-1.0f, -0.4f);
     glEnd();
 
-    // Road Lines
     glColor3f(1.0f, 1.0f, 1.0f);
     for(float lx = -1.0f; lx < 1.0f; lx += 0.2f){
         glBegin(GL_QUADS);
@@ -140,7 +137,7 @@ void drawRoad() {
         glEnd();
     }
 
-    // Borders
+    
     glColor3f(0.0f, 0.0f, 0.0f);
     glLineWidth(3.0f);
     glBegin(GL_LINE_LOOP);
@@ -151,7 +148,7 @@ void drawRoad() {
     glEnd();
 }
 
-// ---------------- Vehicles ----------------
+
 void drawCar(float x, float y) {
     // Car Body
     glColor3f(0.0f, 0.0f, 1.0f);
@@ -161,7 +158,7 @@ void drawCar(float x, float y) {
         glVertex2f(x + 0.3f, y + 0.1f);
         glVertex2f(x, y + 0.1f);
     glEnd();
-    // Wheels
+ 
     glColor3f(0.0f, 0.0f, 0.0f);
     for(float wx = x + 0.05f; wx <= x + 0.25f; wx += 0.2f){
         glBegin(GL_POLYGON);
@@ -174,7 +171,7 @@ void drawCar(float x, float y) {
 }
 
 void drawBus(float x, float y) {
-    // Bus Body
+   
     glColor3f(1.0f, 0.5f, 0.0f);
     glBegin(GL_POLYGON);
         glVertex2f(x, y);
@@ -182,7 +179,7 @@ void drawBus(float x, float y) {
         glVertex2f(x + 0.5f, y + 0.12f);
         glVertex2f(x, y + 0.12f);
     glEnd();
-    // Windows
+ 
     glColor3f(0.0f, 1.0f, 1.0f);
     for(float wx = x + 0.05f; wx < x + 0.45f; wx += 0.1f){
         glBegin(GL_POLYGON);
@@ -194,12 +191,11 @@ void drawBus(float x, float y) {
     }
 }
 
-// ---------------- Display Function ----------------
 void display() {
     glClear(GL_COLOR_BUFFER_BIT);
     glLoadIdentity();
 
-    // Sky
+
     glColor3f(0.6f, 0.9f, 1.0f);
     glBegin(GL_QUADS);
         glVertex2f(-1.0f, -1.0f);
@@ -208,7 +204,7 @@ void display() {
         glVertex2f(-1.0f,  1.0f);
     glEnd();
 
-    // Sun
+    
     glPushMatrix();
     glTranslatef(0.6f, 0.8f, 0.0f);
     glColor3f(1.0f, 1.0f, 0.0f);
@@ -222,7 +218,6 @@ void display() {
     glEnd();
     glPopMatrix();
 
-    // Clouds
     glPushMatrix();
     glTranslatef(-0.5f + _moveCloud1, 0.7f, 0.0f);
     glColor3f(1.0f, 1.0f, 1.0f);
@@ -247,18 +242,18 @@ void display() {
     glEnd();
     glPopMatrix();
 
-    // Birds
+  
     drawBird(-0.4f + _moveBird, 0.75f);
     drawBird(0.0f + _moveBird, 0.8f);
 
-    // Plane
+    
     drawPlane(_movePlane, 0.6f);
 
-    // Buildings
+
     drawBackRowBuildings();
     drawFrontRowBuildings();
 
-    // Road
+ 
     drawRoad();
 
     // Vehicles
@@ -268,7 +263,7 @@ void display() {
     glFlush();
 }
 
-// ---------------- Timer ----------------
+
 void timer(int) {
     _moveBird += 0.005f; if(_moveBird > 1.5f) _moveBird = -1.5f;
     _moveCloud1 += 0.002f; if(_moveCloud1 > 2.0f) _moveCloud1 = -2.0f;
@@ -281,7 +276,7 @@ void timer(int) {
     glutTimerFunc(16, timer, 0);
 }
 
-// ---------------- Initialization ----------------
+
 void init() {
     glClearColor(0.6f, 0.9f, 1.0f, 1.0f);
     glMatrixMode(GL_PROJECTION);
@@ -289,7 +284,7 @@ void init() {
     gluOrtho2D(-1, 1, -1, 1);
 }
 
-// ---------------- Main ----------------
+
 int main(int argc, char** argv){
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
@@ -302,3 +297,4 @@ int main(int argc, char** argv){
     glutMainLoop();
     return 0;
 }
+
